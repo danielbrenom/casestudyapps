@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:XamarinBaseApp.ViewModels;assembly=XamarinBaseApp"
+             x:Class="XamarinBaseApp.Views.BinaryDecimal"
+             x:DataType="viewModels:BinaryDecimalVm">
+    <ContentPage.Content>
+        <Grid RowDefinitions="30, 20, 50, 50, 20, 50" Margin="20, 20">
+            <Label Grid.Row="0" Text="Binary to Decimal Converter"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center" />
+            <Label Grid.Row="1" Text="Binary input" />
+            <Entry Grid.Row="2" Placeholder="Enter binary number" Keyboard="Numeric" Text="{Binding InputBinary}" />
+            <Button Grid.Row="3" Text="Convert" Command="{Binding ConvertCommand}"/>
+            <Label Grid.Row="4" Text="Decimal output" />
+            <Entry Grid.Row="5" Placeholder="Decimal output" Text="{Binding OutputDecimal}" IsReadOnly="True" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:XamarinBaseApp.ViewModels;assembly=XamarinBaseApp"
+             xmlns:vo="clr-namespace:XamarinBaseApp.Helpers.VO;assembly=XamarinBaseApp"
+             x:Class="XamarinBaseApp.Views.HomePage"
+             Title="Case Study Apps"
+             x:DataType="viewModels:HomePageVm">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="The following apps are available:" VerticalOptions="Start" Margin="20,10" />
+            <CollectionView ItemsSource="{Binding ApplicationsList}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedApp}"
+                            SelectionChangedCommand="{Binding LoadApplicationCommand}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vo:DefaultVO">
+                        <Frame CornerRadius="0">
+                            <Label Text="{Binding Name}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
