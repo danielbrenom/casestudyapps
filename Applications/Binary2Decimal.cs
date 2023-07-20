@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Foundation.Abstracts;
 
 namespace Applications
@@ -16,13 +17,7 @@ namespace Applications
         {
             return await Task.Run(() =>
             {
-                var decimalValue = 0;
-                foreach (var binaryValue in BinarySequence)
-                {
-                    decimalValue = decimalValue * 2 + (binaryValue - 48);
-                }
-
-                return decimalValue;
+                return BinarySequence.Aggregate(0, (current, binaryValue) => current * 2 + (binaryValue - 48));
             });
         }
     }
